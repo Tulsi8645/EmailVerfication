@@ -1,37 +1,84 @@
-To use this Application
+# Email Verification using Nodemailer
 
-Register a user on this endpoint:POST http://localhost:5000/auth/register
-in the body:
-           {
-             "name":"marq",
-             "email":"marquiesnissan@gmail.com",
-             "password":"12345"
-           }
-You will get a server response as
-           {
-    "success": true,
-    "message": "User Register Successfully",
-    "user": {
-        "email": "marquiesnissan@gmail.com",
-        "name": "marq",
-        "password": "$2a$10$Vt0.Jtfat8Qx9L2Z1/LoWOMqDQthaU//zgq2AlU/oNxz4UmOPqWbW",
-        "isVerified": false,
-        "verficationToken": "511954",
-        "verficationTokenExpiresAt": "2025-03-20T17:57:40.477Z",
-        "_id": "67db0594aeb8215c89bde53d",
-        "lastLogin": "2025-03-19T17:57:40.485Z",
-        "createdAt": "2025-03-19T17:57:40.491Z",
-        "updatedAt": "2025-03-19T17:57:40.491Z",
-        "__v": 0
-    }
+## Overview
+This application provides user authentication functionality, including user registration and email verification.
+
+## Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo.git
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the server:
+   ```sh
+   npm start
+   ```
+
+## API Endpoints
+
+### Register User
+**Endpoint:**
+```
+POST http://localhost:5000/auth/register
+```
+
+**Request Body:**
+```json
+{
+  "name": "marq",
+  "email": "marqueisnissan@gmail.com",
+  "password": "12345"
 }
-Verify the user on this endpoint:POST http://localhost:5000/auth/verifyemail
-in the body:
-           {
-             "code":"511954"
-           } 
-You will get a server response as 
-           {
-             "success": true,
-             "message": "Email Verifed Successfully"
-           }                  
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "User Register Successfully",
+  "user": {
+    "email": "marqueisnissan@gmail.com",
+    "name": "marq",
+    "isVerified": false,
+    "verificationToken": "511954",
+    "verificationTokenExpiresAt": "2025-03-20T17:57:40.477Z",
+    "lastLogin": "2025-03-19T17:57:40.491Z",
+    "createdAt": "2025-03-19T17:57:40.491Z",
+    "updatedAt": "2025-03-19T17:57:40.491Z"
+  }
+}
+```
+
+---
+
+### Verify Email
+**Endpoint:**
+```
+POST http://localhost:5000/auth/verifyemail
+```
+
+**Request Body:**
+```json
+{
+  "code": "511954"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Email Verified Successfully"
+}
+```
+
+## License
+This project is licensed under the MIT License.
+
+## Contact
+For any inquiries, please reach out to tulsi.gautam0000@gmail.com
+
+                 
